@@ -1,12 +1,9 @@
 <template>
-  <v-card
-    variant="text"
-    rounded="lg"
-    title="Today's News"
-    subtitle="find the latest news here"
-  />
+  <today-news />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import TodayNews from '@/features/news/components/TodayNews.vue'
+</script>
 
 <style scoped></style>
