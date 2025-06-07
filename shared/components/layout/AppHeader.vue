@@ -1,5 +1,11 @@
 <template>
-  <v-app-bar flat color="transparent">
+  <v-app-bar
+    flat
+    scroll-behavior="hide"
+    scroll-threshold="10"
+    class="bg-transparent"
+    style="backdrop-filter: blur(30px)"
+  >
     <v-app-bar-title class="text-center">
       <v-avatar color="inverse" size="x-small" rounded="lg" class="mr-1">
         <v-icon size="x-small" :icon="mdiNewspaperVariantOutline" />
