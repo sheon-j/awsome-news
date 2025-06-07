@@ -10,7 +10,11 @@
               cover
               aspect-ratio="1"
             />
-            <span v-else v-text="article.source.name" />
+            <span
+              v-else
+              v-text="article.source.name"
+              class="font-weight-bold"
+            />
           </v-avatar>
         </template>
         <v-list-item-title class="text-caption opacity-70">

@@ -1,5 +1,9 @@
 <template>
-  <today-news />
+  <v-row>
+    <v-col cols="12" lg="6">
+      <today-news />
+    </v-col>
+  </v-row>
 </template>
 
 <script setup lang="ts">
