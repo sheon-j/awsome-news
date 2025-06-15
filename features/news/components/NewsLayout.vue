@@ -1,8 +1,11 @@
 <template>
-  <v-card variant="text" rounded="lg" :title="title" :subtitle="subtitle">
-    <v-row dense class="pa-4">
-      <slot />
-    </v-row>
+  <v-card variant="text" rounded="lg" class="mb-8">
+    <v-card-item :title="title" :subtitle="subtitle" class="bg-transparent" />
+    <v-card-text>
+      <v-row dense>
+        <slot />
+      </v-row>
+    </v-card-text>
   </v-card>
 </template>
 

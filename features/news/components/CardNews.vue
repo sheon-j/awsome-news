@@ -3,7 +3,7 @@
     <v-list lines="two" class="pa-0">
       <v-list-item>
         <template #prepend>
-          <v-avatar rounded="lg" size="68" color="grey-filled">
+          <v-avatar rounded="lg" size="184" color="grey-filled">
             <v-img
               v-if="article.urlToImage"
               :src="article.urlToImage"
@@ -17,13 +17,25 @@
             />
           </v-avatar>
         </template>
-        <v-list-item-title class="text-caption opacity-70">
-          {{ article.source.name }}
-        </v-list-item-title>
-        <v-list-item-subtitle class="text-body-2 opacity-100">
+        <v-list-item-subtitle class="text-body-1 opacity-100">
           {{ article.title }}
         </v-list-item-subtitle>
-        <span v-text="publishedAt" class="text-caption opacity-70" />
+        <v-list-item-subtitle class="text-caption opacity-100 py-4">
+          <v-avatar size="16" class="mr-1">
+            <v-img :src="sourceLogo" />
+          </v-avatar>
+          <span v-text="article.source.name" />
+          <v-tooltip open-delay="300" location="bottom">
+            <template #activator="{ props }">
+              <span
+                v-text="publishedAt.fromNow()"
+                class="opacity-50 ml-2"
+                v-bind="props"
+              />
+            </template>
+            <span v-text="publishedAt.format('DD MMMM, YYYY A hh:mm')" />
+          </v-tooltip>
+        </v-list-item-subtitle>
       </v-list-item>
     </v-list>
   </v-card>
@@ -42,8 +54,21 @@ const props = defineProps<{
 const open = (url: string) => window.open(url, '_blank')
 
 const publishedAt = computed(() => {
-  const date = dayjs(props.article.publishedAt)
-  return date.fromNow()
+  return dayjs(props.article.publishedAt)
+})
+
+const sourceLogo = computed(() => {
+  const hostname = new URL(props.article.url).hostname
+  const baseUrl = `https://t2.gstatic.com/faviconV2`
+  const query = {
+    client: 'SOCIAL',
+    type: 'FAVICON',
+    fallback_opts: 'TYPE,SIZE,URL',
+    url: `https://${hostname}`,
+    size: '16',
+  }
+  const queryString = new URLSearchParams(query).toString()
+  return `${baseUrl}?${queryString}`
 })
 </script>
 

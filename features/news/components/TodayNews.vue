@@ -1,5 +1,5 @@
 <template>
-  <news-layout title="Today's News" subtitle="find the latest news here">
+  <news-layout title="Latest News" subtitle="find the latest news here">
     <v-col cols="12" sm="6" v-for="(article, index) in articles" :key="index">
       <card-news :article="article" />
     </v-col>

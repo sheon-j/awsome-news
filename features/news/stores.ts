@@ -8,7 +8,7 @@ export const useNewsStore = defineStore('news', () => {
   const category = ref<Category>('business')
 
   const fetchHeadlinesNews = async () => {
-    const response = await fetchHeadlines({ country: 'us', pageSize: '10' })
+    const response = await fetchHeadlines({ country: 'us', pageSize: '6' })
     todayNews.value = response
   }
   fetchHeadlinesNews()
@@ -16,7 +16,7 @@ export const useNewsStore = defineStore('news', () => {
   const fetchCategoryNews = async () => {
     const response = await fetchHeadlines({
       category: category.value,
-      pageSize: '10',
+      pageSize: '6',
     })
     categoryNews.value = response
   }
