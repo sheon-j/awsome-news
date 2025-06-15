@@ -63,6 +63,8 @@ const open = () => {
 }
 
 const content = computed(() => {
-  return props.article.content.replace(/\[\+\d+\s*chars\]/g, '')
+  return props.article?.content
+    ? props.article.content.replace(/\[\+\d+\s*chars\]/g, '')
+    : '(No content available)'
 })
 </script>
