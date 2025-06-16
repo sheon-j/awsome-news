@@ -1,5 +1,5 @@
 <template>
-  <v-dialog :model-value="modelValue" width="840" @update:model-value="close">
+  <v-dialog :model-value="modelValue" width="500" @update:model-value="close">
     <v-card rounded="lg">
       <v-card-item class="pb-0">
         <template #title>
@@ -7,7 +7,7 @@
           <span v-text="article.source.name" />
         </template>
         <template #append>
-          <v-btn variant="plain" size="small" :icon="mdiClose" @click="close" />
+          <v-icon :icon="mdiClose" size="small" @click="close" />
         </template>
       </v-card-item>
       <v-card-title class="px-6 text-wrap">

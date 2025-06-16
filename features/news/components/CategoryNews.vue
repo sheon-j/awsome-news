@@ -1,5 +1,5 @@
 <template>
-  <news-layout title="Category News" subtitle="choose your category">
+  <news-layout title="Category News" :articles="articles">
     <v-chip-group
       v-model="store.category"
       mandatory
@@ -16,15 +16,11 @@
         class="mx-2"
       />
     </v-chip-group>
-    <v-col cols="12" sm="6" v-for="(article, index) in articles" :key="index">
-      <card-news :article="article" />
-    </v-col>
   </news-layout>
 </template>
 
 <script setup lang="ts">
 import NewsLayout from './NewsLayout.vue'
-import CardNews from './CardNews.vue'
 import {
   mdiOfficeBuildingOutline,
   mdiCreationOutline,
